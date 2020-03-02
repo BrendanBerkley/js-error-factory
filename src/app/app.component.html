@@ -1,5 +1,18 @@
 <div>JS Error Factory</div>
 
 <ol>
-  <li><a (click)="throwError()">Throw Error</a></li>
+  <li><button (click)="throwError()">Generic Error</button></li>
+  <li><button (click)="null.f()">TypeError</button></li>
+  <li><button (click)="throwEvalError()">EvalError</button></li>
+  <li><button (click)="checkRange(200)">RangeError</button></li>
+  <li><button (click)="throwReferenceError()">ReferenceError</button></li>
+  <li><button (click)="throwSyntaxError()">SyntaxError</button></li>
+  <li><button (click)="throwUriError()">URIError</button></li>
+  <li><button (click)="makeHash()">Make hash</button></li>
+</ol>
+
+<ol>
+  <li>
+    <button (click)="throwMultipleErrors(20)">Throw 20 Generic Errors</button>
+  </li>
 </ol>
