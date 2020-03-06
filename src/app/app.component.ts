@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  throwError() {
-    throw "A Generic Error";
+  throwError(unique: boolean) {
+    throw `A Generic Error ${unique ? this.hashCode() : ''}`;
   }
 
   throwEvalError() {
@@ -54,6 +54,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.addEventListener('error', e => this.throwGenericError());
+    window.addEventListener('error', e => {
+      if (e.message === '') {
+        this.throwGenericError();
+      }
+    });
   }
 }
