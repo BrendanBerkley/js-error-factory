@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Sentry from '@sentry/browser';
 
 @Component({
   selector: 'app-root',
@@ -51,6 +52,12 @@ export class AppComponent implements OnInit {
 
   throwGenericError() {
     throw new Error('Bulk Generic Error! ' + this.hashCode());
+  }
+
+  errorWithContext() {
+    Sentry.configureScope(scope => scope.setExtra('foo', 'bar'));
+    Sentry.setUser({"id": "1", "email": "test@example.com"});
+    throw new Error("Error with context");
   }
 
   ngOnInit() {
