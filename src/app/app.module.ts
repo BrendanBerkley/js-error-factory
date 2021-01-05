@@ -17,6 +17,8 @@ Sentry.init({
   dsn: "",
 
   integrations: [new TracingIntegrations.BrowserTracing()],
+  // This is overridden by tracesSampler.
+  // Comment tracesSampler out if you want everything to report
   tracesSampleRate: 1,
   tracesSampler: (samplingContext) => {
     if (samplingContext.location.href.includes("tracing")) {
