@@ -2,13 +2,28 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, Injectable, ErrorHandler } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 import * as Sentry from "@sentry/browser";
+import { Integrations as TracingIntegrations } from "@sentry/tracing";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
 import { AutoplayComponent } from "./autoplay/autoplay.component";
+import {
+  Tracing2Component,
+  Tracing3Component,
+  TracingComponent,
+} from "./tracing/tracing.component";
 
 Sentry.init({
   dsn: "",
+
+  integrations: [new TracingIntegrations.BrowserTracing()],
+  tracesSampleRate: 1,
+  tracesSampler: (samplingContext) => {
+    if (samplingContext.location.href.includes("tracing")) {
+      return 1;
+    }
+    return 0;
+  },
 });
 
 @Injectable()
@@ -62,7 +77,13 @@ export class SentryErrorHandler implements ErrorHandler {
 }
 
 @NgModule({
-  declarations: [AppComponent, AutoplayComponent],
+  declarations: [
+    AppComponent,
+    AutoplayComponent,
+    TracingComponent,
+    Tracing2Component,
+    Tracing3Component,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent],
