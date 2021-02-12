@@ -1,16 +1,20 @@
-<h1>JS Error Factory</h1>
+<h1>JS Error (Event?) Factory</h1>
 <ol>
   <!-- target="_self" to perform hard refresh so autoplay error shows-->
   <li><a href="/autoplay" target="_self">Autoplay Error</a></li>
   <li>
     <button (click)="throwError(false)">Generic Error</button>
     <button (click)="throwError(true)">Unique Generic Error</button>
+    <button (click)="throwMultipleErrors(20)">Throw 20 Generic Errors</button>
   </li>
   <li><button (click)="throwEvalError()">EvalError</button></li>
   <li><button (click)="checkRange(200)">RangeError</button></li>
   <li><button (click)="throwReferenceError()">ReferenceError</button></li>
   <li><button (click)="throwSyntaxError()">SyntaxError</button></li>
   <li><button (click)="throwUriError()">URIError</button></li>
+  <li>
+    <a [routerLink]="['tracing']">Performance / Tracing</a>
+  </li>
 </ol>
 
 <ol>
