@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
 import * as Sentry from "@sentry/angular";
-import { Integrations as TracingIntegrations } from "@sentry/tracing";
+import { BrowserTracing } from "@sentry/tracing";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
@@ -14,8 +14,13 @@ import {
 
 Sentry.init({
   dsn: "",
-
-  integrations: [new TracingIntegrations.BrowserTracing()],
+  environment: "dev",
+  release: "1.0",
+  integrations: [
+    new BrowserTracing({
+      routingInstrumentation: Sentry.routingInstrumentation,
+    }),
+  ],
   // This is overridden by tracesSampler.
   // Comment tracesSampler out if you want everything to report
   tracesSampleRate: 1,
