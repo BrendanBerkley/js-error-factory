@@ -1,6 +1,6 @@
 # ErrorFactory
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+Set DSN in `src/app/app.module.ts`
 
 ## Development server
 
