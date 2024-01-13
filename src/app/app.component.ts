@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as Sentry from "@sentry/browser";
+import * as Sentry from "@sentry/angular-ivy";
 
 @Component({
   selector: "app-root",

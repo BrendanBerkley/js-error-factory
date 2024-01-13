@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
-import * as Sentry from "@sentry/angular";
-import { BrowserTracing } from "@sentry/tracing";
+import * as Sentry from "@sentry/angular-ivy";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
@@ -17,7 +16,7 @@ Sentry.init({
   environment: "dev",
   release: "1.0",
   integrations: [
-    new BrowserTracing({
+    new Sentry.BrowserTracing({
       routingInstrumentation: Sentry.routingInstrumentation,
     }),
   ],
