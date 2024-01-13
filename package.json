@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^15.2.3",
     "@angular/platform-browser-dynamic": "^15.2.3",
     "@angular/router": "^15.2.3",
-    "@sentry/angular": "^7.43.0",
+    "@sentry/angular-ivy": "^7.93.0",
     "@sentry/tracing": "^7.43.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
