@@ -15,8 +15,7 @@ Sentry.init({
   dsn: "",
   environment: "dev",
   release: "1.0",
-  integrations: [
-  ],
+  integrations: [],
   // This is overridden by tracesSampler.
   // Comment tracesSampler out if you want everything to report
   tracesSampleRate: 1,

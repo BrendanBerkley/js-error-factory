@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org org --project proj ./dist/error-factory && sentry-cli --url http://localhost:8000/ sourcemaps upload --org org --project proj ./dist/error-factory --release foo"
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org org --project proj ./dist/error-factory && sentry-cli --url http://localhost:8000/ sourcemaps upload --org org --project proj ./dist/error-factory --release 1.0"
   },
   "dependencies": {
     "@angular/animations": "^18.2.11",
