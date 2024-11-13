@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as Sentry from "@sentry/angular-ivy";
+import * as Sentry from "@sentry/angular";
 
 @Component({
   selector: "app-root",
@@ -59,7 +59,6 @@ export class AppComponent implements OnInit {
   }
 
   errorWithContext() {
-    Sentry.configureScope((scope) => scope.setExtra("foo", "bar"));
     Sentry.setUser({ id: "1", email: "test@example.com" });
     throw new Error("Error with context");
   }

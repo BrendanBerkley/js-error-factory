@@ -4,34 +4,36 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
-    "build": "ng build",
+    "build": "ng build && npm run sentry:sourcemaps",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org org --project proj ./dist/error-factory && sentry-cli --url http://localhost:8000/ sourcemaps upload --org org --project proj ./dist/error-factory --release foo"
   },
   "dependencies": {
-    "@angular/animations": "^17.0.9",
-    "@angular/common": "^17.0.9",
-    "@angular/compiler": "^17.0.9",
-    "@angular/core": "^17.0.9",
-    "@angular/forms": "^17.0.9",
-    "@angular/platform-browser": "^17.0.9",
-    "@angular/platform-browser-dynamic": "^17.0.9",
-    "@angular/router": "^17.0.9",
-    "@sentry/angular-ivy": "^7.93.0",
-    "@sentry/tracing": "^7.93.0",
+    "@angular/animations": "^18.2.11",
+    "@angular/common": "^18.2.11",
+    "@angular/compiler": "^18.2.11",
+    "@angular/core": "^18.2.11",
+    "@angular/forms": "^18.2.11",
+    "@angular/platform-browser": "^18.2.11",
+    "@angular/platform-browser-dynamic": "^18.2.11",
+    "@angular/router": "^18.2.11",
+    "@sentry/angular": "^8.38.0",
+    "@sentry/cli": "^2.38.2",
+    "@sentry/tracing": "^7.114.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.14.3"
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.10",
-    "@angular/cli": "^17.0.10",
-    "@angular/compiler-cli": "^17.0.9",
-    "@angular/language-service": "^17.0.9",
-    "@types/node": "^12.11.1",
+    "@angular-devkit/build-angular": "^18.2.11",
+    "@angular/cli": "^18.2.11",
+    "@angular/compiler-cli": "^18.2.11",
+    "@angular/language-service": "^18.2.11",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -43,6 +45,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.5.4"
   }
 }
