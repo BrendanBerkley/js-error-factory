@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import * as Sentry from "@sentry/angular";
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.css"],
-    standalone: false
+    imports: [RouterLink, RouterOutlet]
 })
 export class AppComponent implements OnInit {
   throwError(unique: boolean) {
