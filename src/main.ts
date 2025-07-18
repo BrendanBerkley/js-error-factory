@@ -5,9 +5,16 @@ import { AppComponent } from "./app/app.component";
 import * as Sentry from "@sentry/angular";
 
 Sentry.init({
-  dsn: "",
+  dsn: "http://9e8afdccb9c746f59671a432a4a2854c@localhost:8000/7",
   environment: "dev",
   release: "1.0",
+  // beforeSend(event, hint) {
+  //   // Check if it is an exception, and if so, show the report dialog
+  //   if (event.exception && event.event_id) {
+  //     Sentry.showReportDialog({ eventId: event.event_id });
+  //   }
+  //   return event;
+  // },
   integrations: [],
   // This is overridden by tracesSampler.
   // Comment tracesSampler out if you want everything to report
