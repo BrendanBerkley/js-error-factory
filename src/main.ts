@@ -5,7 +5,7 @@ import { AppComponent } from "./app/app.component";
 import * as Sentry from "@sentry/angular";
 
 Sentry.init({
-  dsn: "http://9e8afdccb9c746f59671a432a4a2854c@localhost:8000/7",
+  dsn: "",
   environment: "dev",
   release: "1.0",
   // beforeSend(event, hint) {
