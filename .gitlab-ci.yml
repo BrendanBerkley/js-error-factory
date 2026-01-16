@@ -1,0 +1,19 @@
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate-config-validator.gitlab-ci.yml'
+    ref: v25.0.0
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate.gitlab-ci.yml'
+    ref: v25.0.0
+
+stages:
+  - renovate
+
+variables:
+  RENOVATE_EXTRA_FLAGS: "--autodiscover=true --autodiscover-filter=glitchtip/error-factories/js-angular-error-factory"
+  CI_RENOVATE_IMAGE: ghcr.io/renovatebot/renovate:full
+
+renovate:
+  stage: renovate
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
